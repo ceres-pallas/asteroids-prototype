@@ -1,4 +1,4 @@
-(function(CodeMirror){
+var fighter = (function(CodeMirror){
     var code = document.getElementById('code');
     code.textContent = 'function(){ /* do nothing */ }'
 
@@ -22,7 +22,7 @@
 	var context = this.context;
 	context.beginPath();
 	context.moveTo(this.x, this.y);
-	context.lineTo(this.x + this.width/2, this.x + this.height);
+	context.lineTo(this.x + this.width/2, this.y + this.height);
 	context.lineTo(this.x + this.width, this.y);
 	context.closePath();
 	context.fill();
@@ -33,5 +33,12 @@
 	y: 10
 
     });
-    fighter.draw();
+
+    (function renderLoop(){
+	requestAnimationFrame(renderLoop);
+	canvas.width = canvas.width;
+	fighter.draw();
+    })();
+
+    return fighter;
 })(CodeMirror)
