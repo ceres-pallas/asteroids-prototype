@@ -10,11 +10,28 @@
     var canvas = document.getElementById('top');
     context = canvas.getContext('2d');
 
-    context.beginPath();
-    context.moveTo(10,10);
-    context.lineTo(15, 30);
-    context.lineTo(20, 10);
-    context.closePath();
+    var Fighter = function(context, options) {
+	options = options || {};
+	this.context = context;
+	this.x = options.x || 0;
+	this.y = options.y || 0;
+	this.width = options.width || 10;
+	this.height = options.height || 20;
+    }
+    Fighter.prototype.draw = function() {
+	var context = this.context;
+	context.beginPath();
+	context.moveTo(this.x, this.y);
+	context.lineTo(this.x + this.width/2, this.x + this.height);
+	context.lineTo(this.x + this.width, this.y);
+	context.closePath();
+	context.fill();
+    }
 
-    context.fill();
+    var fighter = new Fighter(context, {
+	x: 10,
+	y: 10
+
+    });
+    fighter.draw();
 })(CodeMirror)
