@@ -1,0 +1,23 @@
+{
+  "name": "asteroids-prototype",
+  "version": "0.0.0",
+  "description": "Trying out the gameplay for the asteroids programming game",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ceres-pallas/asteroids-prototype.git"
+  },
+  "keywords": [
+    "asteroids",
+    "code",
+    "game"
+  ],
+  "author": "Daan van Berkel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ceres-pallas/asteroids-prototype/issues"
+  }
+}
