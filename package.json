@@ -19,5 +19,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ceres-pallas/asteroids-prototype/issues"
+  },
+  "dependencies": {
+    "express": "~3.4.4"
   }
 }
