@@ -21,6 +21,7 @@
     "url": "https://github.com/ceres-pallas/asteroids-prototype/issues"
   },
   "dependencies": {
-    "express": "~3.4.4"
+    "express": "~3.4.4",
+    "socket.io": "~0.9.16"
   }
 }
