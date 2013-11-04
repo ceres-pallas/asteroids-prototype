@@ -7,7 +7,7 @@ var io = require('socket.io').listen(server);
 
 var Game = require('./lib/game');
 
-app.set('port', process.env.port || 1729);
+app.set('port', process.env.port || 8080);
 app.use('/static', express.static(__dirname + '/public'));
 
 var game = new Game();
