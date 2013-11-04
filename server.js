@@ -5,20 +5,29 @@ var app = new express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
+var Game = require('./lib/game');
+
 app.set('port', process.env.port || 1729);
 app.use('/static', express.static(__dirname + '/public'));
 
+var game = new Game();
+
 io.sockets.on('connection', function(socket){
-    console.log('socket %s connected', socket.id);
+    game.addParticipant(socket);
 
     socket.on('change', function(change){
-	console.log(change.code);
+	game.update(socket.id, change.code);
     });
 
     socket.on('disconnect', function(){
-	console.log('socket %s disconnected', socket.id);
+	game.removeParticipant(socket.id);
     });
 });
+
+var interval = setInterval(function(){
+    game.tick();
+    game.notify();
+}, 1000/60);
 
 server.listen(app.get('port'));
 

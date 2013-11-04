@@ -92,5 +92,13 @@ var fighter = (function(CodeMirror){
 	fighter.draw();
     })();
 
+    var triggered = false;
+    socket.on('state', function(state){
+	if (!triggered) {
+	    console.log(state);
+	    triggered = true;
+	}
+    });
+
     return fighter;
 })(CodeMirror)
