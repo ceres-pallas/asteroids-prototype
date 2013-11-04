@@ -8,6 +8,18 @@ var io = require('socket.io').listen(server);
 app.set('port', process.env.port || 1729);
 app.use('/static', express.static(__dirname + '/public'));
 
+io.sockets.on('connection', function(socket){
+    console.log('socket %s connected', socket.id);
+
+    socket.on('change', function(change){
+	console.log(change.code);
+    });
+
+    socket.on('disconnect', function(){
+	console.log('socket %s disconnected', socket.id);
+    });
+});
+
 server.listen(app.get('port'));
 
 console.log('server started at port %s', app.get('port'));

@@ -1,10 +1,18 @@
 var fighter = (function(CodeMirror){
+    var socket = io.connect(window.location.origin);
+
     var code = document.getElementById('code');
     code.textContent = '/* move ship left */\nleft();'
 
     var editor = CodeMirror.fromTextArea(code, {
 	mode: 'javascript',
 	lineNumbers: true
+    });
+    editor.on('change', function(instance, change){
+	socket.emit('change', {
+	    timestamp: (new Date()).getTime(),
+	    code: instance.getValue()
+	});
     });
 
     var canvas = document.getElementById('top');
