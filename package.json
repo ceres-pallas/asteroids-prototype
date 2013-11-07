@@ -4,7 +4,8 @@
   "description": "Trying out the gameplay for the asteroids programming game",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -27,5 +28,9 @@
   },
   "devDependencies": {
     "nodemon": "~0.7.10"
+  },
+  "subdomain": "dvberkel-asteroids-prototype",
+  "engines": {
+    "node": "0.10.x"
   }
 }
